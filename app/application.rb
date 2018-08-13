@@ -9,7 +9,6 @@ class Application
     if req.path.match(/items/)
       item_name = req.path.split("items/").last
       item = @@items.find{|i| i.name == item_name}
-      resp.write "Hey nikki: #{item_name}"
       if item
         resp.write "Price is #{item.price}"
       else
