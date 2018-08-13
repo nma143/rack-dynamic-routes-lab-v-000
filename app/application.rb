@@ -12,7 +12,7 @@ class Application
       if item
         resp.write "Price is #{item.price}"
       else
-        resp.write "Dont have that item"
+        resp.write "Item not found"
         resp.status = 400
       end
     else
