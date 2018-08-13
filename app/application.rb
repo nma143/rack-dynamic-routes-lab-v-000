@@ -1,7 +1,7 @@
 class Application
 
   @@items = []
-  
+
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
@@ -15,23 +15,10 @@ class Application
         resp.write "Dont' have that item"
         resp.status = 400
       end
-      
-      @@items.each do |item|
-        resp.write "#{item}\n"
-      end
     else
       resp.write "Path Not Found"
       resp.status = 404
     end
-
     resp.finish
-  end
-
-  def handle_search(search_term)
-    if @@items.include?(search_term)
-      return "#{search_term} is one of our items"
-    else
-      return "Couldn't find #{search_term}"
-    end
   end
 end
